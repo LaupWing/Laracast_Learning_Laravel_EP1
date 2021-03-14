@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-   return view('about');
+
+   return view('about',[
+		'articles' => Article::latest()->get()
+	]);
 });
